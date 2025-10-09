@@ -97,10 +97,6 @@
         closeByEscaping: @js($closeByEscaping),
         autofocus: @js($autofocus),
 
-        startY: 0,
-        currentY: 0,
-        moving: false,
-
         // Event names
         closeEventName: @js($closeEventName),
         openEventName: @js($openEventName),
@@ -190,22 +186,6 @@
             this.close();
             document.body.style.overflow = '';
         },
-        
-        handleMovingStart(event) {
-            this.moving = true;
-            this.startY = this.currentY = event.touches[0].clientY;
-        },
-
-        handleWhileMoving(event) {
-            this.currentY = event.touches[0].clientY;
-        },
-
-        handleMovingEnd() {
-            if (this.distance > 100) {
-                this.close();
-            }
-            this.moving = false;
-        },
     }"
     x-id="['modal']"
     x-bind:data-modal-open="isOpen"
@@ -265,7 +245,6 @@
                     x-ref="modalContent"
                     data-slot="modal-contents"
                     x-show="isOpen"
-
                     @if($animation === 'scale')
                         x-transition:enter="transition ease-out duration-200"
                         x-transition:enter-start="opacity-0 scale-95"
@@ -297,16 +276,8 @@
                     ])
                     style="display: none;"
                 >
-                <div
-                    x-on:touchstart="handleMovingStart($event)"
-                    x-on:touchmove="handleWhileMoving($event)"
-                    x-on:touchend="handleMovingEnd()"
-                    class="absolute left-0 right-0 top-0 h-[44px] sm:hidden"
-                >
-                    <div class="flex justify-center pt-[2px]">
-                        <div class="dark:bg-neutral-700 bg-neutral-300 rounded-box h-[5px] w-[10%]"></div>
-                    </div>
-                </div>
+                    {{-- close by swap feature --}}
+                    <x-ui.modal.grab-handle />
                     {{-- Header --}}
                     @if($hasHeading  || $closeButton)
                     <div

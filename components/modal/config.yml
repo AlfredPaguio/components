@@ -1,5 +1,6 @@
 files:
   index: resources/views/components/ui/modal/index.blade.php
+  grab-handle: resources/views/components/ui/modal/grab-handle.blade.php
   modals: resources/js/globals/modals.js
   utils: resources/js/utils.js
   backdrop: resources/views/components/ui/modal/backdrop.blade.php
