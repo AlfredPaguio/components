@@ -326,7 +326,7 @@ trait HasToast
     public function toast(string $content, string $type = 'info'): void
     {
         $this->dispatch('notify', 
-            type: 'success',
+            type: $type,
             content: $content,
             duration: 4000
         );
