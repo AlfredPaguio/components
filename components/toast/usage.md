@@ -327,7 +327,7 @@ trait HasToast
     {
         $this->dispatch('notify', 
             type: 'success',
-            content:'post saved successfully',
+            content: $content,
             duration: 4000
         );
     }
