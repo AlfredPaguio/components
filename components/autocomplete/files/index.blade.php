@@ -64,7 +64,6 @@
                     this.$wire.set(prop, value, wireModel?.includes('.live'));
                 }
             });
-            {{-- this.$watch('activeIndex',(val) => console.log(val)) --}}
 
             this.$watch('search', (val) => {
                 // reset highlighted item whenever search text changes I don't like it, you may so here it is comented

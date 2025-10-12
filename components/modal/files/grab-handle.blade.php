@@ -85,7 +85,6 @@
     x-on:touchend="handleTouchEnd()"
     x-on:touchcancel="handleTouchEnd()"
     
-    x-effect="console.log(progress)"
 
     class="relative flex justify-center pt-[2px] sm:hidden"
 >

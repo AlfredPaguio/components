@@ -72,9 +72,6 @@
                 }
             });
 
-            this.$nextTick(()=>{
-                console.log(this.$root._x_model?.get())
-            })
 
             // ====================================================================
             // STATE SYNCHRONIZATION WATCHER

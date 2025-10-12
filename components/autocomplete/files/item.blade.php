@@ -21,7 +21,6 @@
 
     tabindex="0"
 
-    {{-- x-on:focus="console.log('focused')" --}}
     x-bind:id="'item-' + getFilteredIndex(@js($value))"
     
     x-bind:class="{
