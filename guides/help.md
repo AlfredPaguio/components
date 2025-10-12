@@ -24,9 +24,17 @@ Every component includes real Blade examples, slot/prop references, and customiz
 
 ##  Community Support
 
-### Discord (coming soon)
+### Discord
 
 Join our Sheaf UI Discord where the core team and contributors hang out. Ask questions, share components, or just vibe with the Laravel UI dev crowd.
+
+@blade
+<x-md.cta                                                            
+    href=" https://discord.gg/2XgFyE4D"                                    
+    label="join our discord server"
+    ctaLabel="Join"
+/>
+@endblade
 
 ### GitHub Discussions
 
