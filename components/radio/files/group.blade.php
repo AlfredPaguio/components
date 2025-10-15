@@ -24,6 +24,7 @@
 @endphp
 
 <div
+    data-slot="group-controller"
     x-data="{
         state: null,
         init() {
