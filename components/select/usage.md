@@ -382,6 +382,46 @@ public $categories = [
 </x-ui.select>
 ```
 
+
+### Handling Dynamic or Dependent Selects
+
+When using dependent `<x-ui.select>` components (for example, Country -> State), Livewire may not correctly re-render the second select when its parent changes.
+This can cause options to appear greyed out or not visually update, even though the correct value is submitted.
+
+To fix this, **add unique `wire:key` attributes** to both the `<x-ui.select>` and each `<x-ui.select.option>` element.
+This ensures Livewire can properly track and re-render the DOM when the data changes.
+
+```blade
+<x-ui.select
+    wire:model.live="country_id"
+    placeholder="Choose country..."
+    searchable
+>
+    <x-ui.select.option value="">Select Country</x-ui.select.option>
+    @foreach ($countries as $country)
+        <x-ui.select.option value="{{ $country->id }}">
+            {{ $country->name }}
+        </x-ui.select.option>
+    @endforeach
+</x-ui.select>
+
+<x-ui.select
+    wire:model.live="state_id"
+    :wire:key="'state-select-' . $country_id"
+    placeholder="Choose state..."
+    searchable
+>
+    <x-ui.select.option value="">Select State</x-ui.select.option>
+    @foreach ($states as $state)
+        <x-ui.select.option :wire:key="'state-option-' . $state->id" value="{{ $state->id }}">
+            {{ $state->name }}
+        </x-ui.select.option>
+    @endforeach
+</x-ui.select>
+```
+
+> **Tip:** Refer to the [Livewire docs on `wire:key`](https://livewire.laravel.com/docs/troubleshooting#adding-wirekey) for more details on how keys help with dynamic component re-renders.
+
 ### Conditional Options
 
 ```html
