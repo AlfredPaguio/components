@@ -420,7 +420,7 @@ This ensures Livewire can properly track and re-render the DOM when the data cha
 </x-ui.select>
 ```
 
-> 💡 **Tip:** Refer to the [Livewire docs on `wire:key`](https://livewire.laravel.com/docs/troubleshooting#adding-wirekey) for more details on how keys help with dynamic component re-renders.
+> **Tip:** Refer to the [Livewire docs on `wire:key`](https://livewire.laravel.com/docs/troubleshooting#adding-wirekey) for more details on how keys help with dynamic component re-renders.
 
 ### Conditional Options
 
