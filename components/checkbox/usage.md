@@ -1,3 +1,7 @@
+---
+name: 'checkbox'
+---
+
 # Checkbox Component
 
 ## Introduction
